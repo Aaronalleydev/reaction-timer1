@@ -1,17 +1,19 @@
 <template>
+  <Scoreboard :score="score"/>
   <h1>Ninja reaction timer</h1>
   <button @click="start" :disabled="isPlaying">Play</button>
   <Block v-if="isPlaying" :delay="delay" @end="endGame"/>
-   <Results v-if="showResults" :score="score" /> 
+  <Results :score="score" :isPlaying="isPlaying" /> 
 </template>
 
 <script>
 import Block from './components/Block.vue'
 import Results from './components/Results.vue'
+import Scoreboard from './components/Scoreboard.vue'
 
 export default {
   name: 'App',
-  components: { Block, Results },
+  components: { Block, Results, Scoreboard },
   data(){
     return {
       isPlaying: false,

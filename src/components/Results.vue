@@ -1,11 +1,11 @@
 <template>
   <p>Reaction time: {{ score }}ms</p>
-  <p class="rank">{{rank}}</p>
+  <p v-if="!isPlaying" class="rank">{{rank}}</p>
 </template>
 
 <script>
 export default {
- props: [ 'score' ],
+ props: [ 'score', 'isPlaying' ],
  data() {
      return{
          rank: null
